@@ -1,0 +1,157 @@
+#include <iostream>
+using namespace std;
+int main() {
+    string gmail;
+    int count;
+
+    cout << "請輸入帳號:";
+    cin >> gmail;
+    
+    if (gmail.length() == 17){    //信箱長度
+        count ++;
+    }        
+    
+    for (int i = 0; i < 17; i++){
+      
+        if (i == 0 || i == 10){               //a
+            if (gmail[i] == 97){
+                count ++;        
+            }
+            else {
+                //cout << "a";
+            }
+        }
+        
+        
+        if (1 <= i && i <= 6){     //學號                
+            if (48 <= gmail[i] && gmail[i] <= 57){
+               count ++;        
+            }
+            else {
+                //cout << "學號 ";
+            }
+        }
+        
+            
+        if (i == 7){               //@
+            if (gmail[i] == 64){
+                count ++;        
+            }
+            else {
+                //cout << "@";
+            }
+        }
+        
+
+        
+        if (i == 8){               //g
+            if (gmail[i] == 103){
+                count ++;        
+            }
+            else{
+                //cout << "g";
+            }
+        }
+
+        if (i == 9 || i == 16){               //m
+            if (gmail[i] == 109){
+                count ++;        
+            }
+            else{
+                //cout << "m";
+            }
+        }
+
+        if (i == 11){               //i
+            if (gmail[i] == 105){
+                count ++;        
+            }
+            else{
+                //cout << "i";
+            }
+        }
+
+        if (i == 12){               //l
+            if (gmail[i] == 108){
+                count ++;        
+            }
+            else{
+                //cout << "l";
+            }
+        }
+
+        if (i == 13){               //.
+            if (gmail[i] == 46){
+                count ++;        
+            }
+            else{
+                //cout << ".";
+            }
+        }
+
+        if (i == 14){               //c
+            if (gmail[i] == 99){
+                count ++;        
+            }
+            else{
+                //cout << "c";
+            }
+        }
+
+        if (i == 15){               //o
+            if (gmail[i] == 111){
+                count ++;        
+            }
+            else{
+                //cout << "o";
+            }
+        }
+    }
+
+    if (count == 18){
+        cout << "帳號符合" << endl;
+    }
+    else{
+        cout << "帳號不符" << endl;
+    }
+
+    
+    string password;
+    int lv[5] = {0};
+    int counter = 0;
+    cout << "請輸入密碼";
+    cin >> password;
+
+    if (password.length() >= 8){        //長度0
+        lv[0] ++;
+        //cout << 0;
+    }
+    for (int i = 0; i < password.length(); i ++){       
+        if (48 <= password[i] && password[i] >= 57){
+            lv[1] ++;
+            //cout << 1;
+        }         //數字1
+    
+        if (65 <= password[i] && password[i] >= 90){
+            lv[2] ++;
+            //cout << 2;
+        }       //大寫字母2
+
+        if (97 <= password[i] && password[i] >= 122){
+            lv[3] ++;
+            //cout << 3;
+        }       //小寫字母3
+
+        if (password[i] < 65 || password[i] > 57 && password[i] < 65 ||  password[i] > 61 && password[i] < 90 || password[i] >122){
+            lv[4] ++;
+            //cout << 4;
+        }       //特殊字元4
+    }
+
+    for (int i = 0; i < 5 ; i ++){
+        if (lv[i] > 0){
+            counter ++;
+        }
+    }
+    cout << "密碼強度:" << counter << "/5";
+}
